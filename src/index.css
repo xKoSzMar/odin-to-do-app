@@ -1,0 +1,338 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: monospace, "Courier New", Courier;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: #777;
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#main {
+  background-color: #333;
+  width: 1200px;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px black;
+  padding: 10px;
+  user-select: none;
+}
+
+#nav-container {
+  width: 100%;
+  height: 50px;
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 10px 10px -10px black;
+  overflow: hidden;
+  z-index: 1;
+  margin-bottom: 10px;
+  padding: 5px 5px 0 5px;
+}
+
+#nav-container > * {
+  margin-right: 5px;
+}
+
+.tab,
+#add-tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tab:hover,
+#add-tab:hover {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  background-color: #777;
+}
+
+#add-tab:active {
+  transition: all 0.1s ease-in-out;
+  background-color: #888;
+}
+
+.tab {
+  background-color: #555;
+  height: 100%;
+  border-radius: 15px 15px 0 0;
+  padding: 0 10px;
+  align-self: flex-end;
+  color: white;
+  font-size: 1.1rem;
+}
+
+.selected-tab {
+  background-color: #777;
+}
+
+.tab > p {
+  max-width: 150px;
+  text-wrap: nowrap;
+  overflow: hidden;
+}
+
+.tab > input {
+  all: unset;
+  width: 150px;
+  font-style: italic;
+}
+
+#add-tab {
+  padding: 5px;
+  margin-right: 5px;
+  border-radius: 100%;
+}
+
+.delete-tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  margin-left: 5px;
+}
+
+.delete-tab:hover {
+  transition: all 0.2s ease-in-out;
+  background-color: #666;
+}
+
+.delete-tab:active {
+  transition: all 0.1s ease-in-out;
+  background-color: #888;
+}
+
+#main-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  position: relative;
+  background-color: #555;
+  display: flex;
+}
+
+#add-task {
+  background-color: goldenrod;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  border-radius: 100%;
+  padding: 5px;
+}
+
+#add-task:hover {
+  cursor: pointer;
+  background-color: hsl(43, 74%, 39%);
+  transition: all 0.2s ease-in-out;
+}
+
+#add-task:active {
+  background-color: hsl(43, 74%, 59%);
+  transition: all 0.1s ease-in-out;
+}
+
+#board {
+  flex: 1.8;
+  border-radius: 10px 0 0 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-rows: 150px;
+  gap: 10px;
+  padding: 10px;
+}
+
+.card {
+  background-color: #333;
+  border-radius: 20px;
+  box-shadow: 1px 1px 5px 0px black;
+  padding: 10px;
+  overflow: hidden;
+  color: white;
+}
+
+.card:hover {
+  cursor: pointer;
+  background-color: #444;
+  transition: all 0.2s ease-in-out;
+}
+
+.card:active {
+  background-color: #222;
+  transition: all 0.1s ease-in-out;
+}
+
+.card > p {
+  overflow-wrap: break-word;
+  height: 74px;
+}
+
+#status-container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+#status-container > *:not(:last-child) {
+  margin-right: 10px;
+}
+
+#status-container > #priority-icon {
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  margin-left: 20px;
+}
+
+.green {
+  background-color: limegreen;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.orange {
+  background-color: orange;
+}
+
+.red {
+  background-color: red;
+}
+
+#task-editor {
+  background-color: #444;
+  flex: 1;
+  min-width: 453px;
+  border-radius: 0 10px 10px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  z-index: 1;
+}
+
+#task-editor > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#task-editor > form > *:not(:first-child) {
+  margin-top: 25px;
+}
+
+#task-editor > form > h2,
+#task-editor > form > div > label {
+  color: white;
+}
+
+#task-title,
+#task-description {
+  all: unset;
+  color: white;
+  background-color: #333;
+  border: 1.5px solid #222;
+  padding: 10px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+}
+
+#task-title:hover,
+#task-description:hover {
+  transition: all 0.2s ease-in-out;
+  background-color: #555;
+}
+
+#task-title:focus,
+#task-description:focus {
+  background-color: #555;
+}
+
+#task-description {
+  resize: none;
+  height: 200px;
+  overflow-wrap: break-word;
+  line-height: 1.5;
+}
+
+#task-editor > form > div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#task-editor > form > div > select,
+#task-editor > form > div > input {
+  width: 50%;
+  border-radius: 20px;
+  color: white;
+  background-color: #333;
+  border: 1.5px solid #222;
+  padding: 5px;
+  color-scheme: dark;
+}
+
+#task-editor > form > #button-container {
+  position: absolute;
+  bottom: 0;
+  justify-content: space-around;
+}
+
+#button-container > button {
+  all: unset;
+  color: goldenrod;
+  background-color: #333;
+  border: 1.5px solid goldenrod;
+  padding: 10px;
+  border-radius: 15px;
+  width: 100px;
+  text-align: center;
+}
+
+#button-container > button:hover {
+  cursor: pointer;
+  background-color: #222;
+  transition: all 0.2s ease-in-out;
+}
+
+#button-container > button:active {
+  background-color: #555;
+  transition: all 0.1s ease-in-out;
+}
+
+#button-container > #save-button {
+  background-color: goldenrod;
+  color: #333;
+  border: 1.5px solid #333;
+}
+
+#button-container > #save-button:hover {
+  background-color: hsl(43, 74%, 29%);
+}
+
+#button-container > #save-button:active {
+  background-color: hsl(43, 74%, 59%);
+}
