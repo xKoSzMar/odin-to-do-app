@@ -41,3 +41,13 @@ The application utilizes two local databases objects implemented as JavaScript c
 - CSS
 - JavaScript
 - Webpack
+
+## Scripts
+
+Build the app:
+
+> npm run build
+
+Run dev environment (live server):
+
+> npm run dev
